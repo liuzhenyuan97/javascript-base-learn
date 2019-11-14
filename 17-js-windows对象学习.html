@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>windows对象学习</title>
+		<meta charset="UTF-8"/>
+		<!--
+        	作者：570773402@qq.com
+        	时间：2019-11-02
+        	描述：
+        	     BOM浏览器对象模型，是规范浏览器对js语言的支持。(js调用浏览器本身的功能。)
+        	     BOM的具体实现是windows对象
+        	     
+        	     windows对象使用学习。
+        	          1、windows对象不用new，直接进行使用即可，类似Math的使用方式，windows关键字可以省略不写。
+        	          2、框体方法
+        	               alert：警告框 提示一个警告信息，没有返回值
+        	               confirm：确认框，提示用户选择一项操作(确定/取消)
+        	                                                                点击确定，返回true
+        	                                                                点击取消，返回false
+        	                prompt：提示框，提示某个信息的录入或者收集。
+        	                                                               点击确定，返回当前用户录入的数据，默认返回空字符串。
+        	                                                               点击取消，返回null
+        	          3、定时和间隔执行方法
+        	               setTimeout：指定时间后执行指定的函数
+        	                                                                     参数1、函数对象
+        	                                                                     参数2、时间   单位毫秒
+        	                                                                     返回值：返回当前定时器的id
+        	                setInerval 
+        	                                                                     参数1、函数对象
+        	                                                                     参数2、时间，单位毫秒
+        	                                                                     返回值：返回当前间隔器的id
+        	                clearTimeout：用来停止指定的定时器
+        	                                                                     参数：定时器的id
+        	                clearInerval：用来停止指定的间隔器
+        	                                                                     参数：间隔器的id
+        	                
+        -->
+        <!--声明js代码域-->
+        <script type="text/javascript">
+        	//框体方法学习：
+        	     //警告框
+        	     function testAlert(){
+        	     	var a=window.alert("我是警告框");
+        	     	alert(a);
+        	     }
+        	     //确认框
+        	     function testConfirm(){
+        	     	var flag=window.confirm("你确定要删除吗？");
+        	     	alert(flag);
+        	     }
+        	     //提示框
+        	     function testPrompt(){
+        	     	var str=window.prompt("请输入昵称：");
+        	     	alert(str);
+        	     }
+/*----------------------------------------------------------------*/
+                var idi;
+                var ids;
+                //定时执行
+                     function testSetTimeout(){
+                     	idi=window.setTimeout(function(){
+                     		alert("我是定时执行");
+                     	},3000);
+                     }
+                //间隔执行
+                     function testSetInerval(){
+                     	ids=window.setInterval(function(){
+                     		alert("我是间隔执行");
+                     	},2000);
+                     }
+                //停止当前的定时方法
+                     function testClearTimeout(){
+                     	window.clearTimeout(idi);
+                     }
+                     function testClearInerval(){
+                     	window.clearInterval(ids);
+                     }
+        </script>
+	</head>
+	<body>
+		<h3>windows对象学习</h3>
+		<hr />
+		<input type="button" name="" id="" value="测试警告框" onclick="testAlert()"/>
+		<input type="button" name="" id="" value="测试确认框" onclick="testConfirm()"/>
+		<input type="button" name="" id="" value="测试提示框" onclick="testPrompt()"/>
+		<hr />
+		<input type="button" name="" id="" value="测试SetTimeout--定时执行" onclick="testSetTimeout()"  />
+		<input type="button" name="" id="" value="测试SetInerval--间隔执行" onclick="testSetInerval()"  />
+		<input type="button" name="" id="" value="测试ClearTimeout--停止指定的定时器" onclick="testClearTimeout()"  />
+		<input type="button" name="" id="" value="测试ClearInerval--停止指定的间隔器" onclick="testClearInerval()"  />
+	</body>
+</html>
